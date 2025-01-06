@@ -1,0 +1,1 @@
+Demonstraing how we can extract Google Play Store referrer information in a React Native (expo) app.
