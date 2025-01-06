@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Platform } from 'react-native'
 import { PlayInstallReferrer } from 'react-native-play-install-referrer'
 
 const useReferralCode = () => {
@@ -6,6 +7,11 @@ const useReferralCode = () => {
   const [referrerError, setReferrerError] = useState<any | null>(null)
 
   useEffect(() => {
+    // only for Android
+    if (Platform.OS !== 'android') {
+      return
+    }
+
     try {
       PlayInstallReferrer.getInstallReferrerInfo((info, err) => {
         if (err) {
